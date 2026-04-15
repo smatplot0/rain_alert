@@ -1,4 +1,3 @@
-
 import requests
 from twilio.rest import Client
 import os
@@ -27,10 +26,11 @@ for hour_data in weather_data["list"]:
     if int(condition_code) < 700:
         will_rain = True
 
-# TEMP TEST
+# 🔥 FORCE TEST (only this line)
 will_rain = True
 
 if will_rain:
+    print("Rain condition triggered 🌧️")
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="It's going to rain today ☔",
@@ -40,3 +40,5 @@ if will_rain:
     print(message.status)
 else:
     print("No rain expected ☀️")
+
+print("Script executed successfully ✅")
